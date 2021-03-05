@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Tile Editor</title>
+        <link rel="stylesheet" href="./style.css" type="text/css" />
+    </head>
+<body>
+<div class="card">
+
+    <div class="wrapper">
+        <header class="heading">
+            <h1>Tile Map Editor</h1>
+            <div>
+                <button class="danger-button" onclick="clearCanvas()">Clear Canvas</button>
+                <button class="primary-button" onclick="saveFile()">Export Array</button>
+            </div>
+            <div>
+                <br/>
+                <form>
+                    <label class="label" for="tilesize">
+                        Tile Size
+                        <input type="number" placeholder="Default tile size: 32" id="tilesize">
+                    </label >
+                    <label class="label" for="canvaswidth">
+                        Canvas Width
+                        <input type="number" placeholder="Default Canvas Width: 960" id="canvaswidth" >
+                    </label >
+                    <label class="label" for="canvasheight">
+                        Canvas Height
+                        <input type="number" placeholder="Default canvas Height: 640" id="canvasheight">
+                    </label>
+                    <label class="label" for="fileupload">
+                        Upload File
+                        <input type="file" id="fileUpload">
+                    </label>
+                </form>
+                <div>
+                    <button class="success-button" onclick="generate()">Generate</button>
+                </div>
+                <br>
+                <div>
+                    <lable for="reverse">
+                        Reverse Look-up: Load Array to draw on the canvas. Make sure to fill the above fields including the tile sheet.
+                        <input type="file" id="reverse" onchange="loadFile(this.files[0])">
+                    </lable>
+                </div>
+            </div>
+          
+        </header>
+        <div class="card_body">
+            <aside class="asider">
+                <label>Tiles</label>
+                <div class="tileset-container">
+                    <img id="tileset-source" crossorigin />
+                    <div class="tileset-container_selection" id="tileset-selector"></div>
+                </div>
+            </aside>
+            <div class="card_right-column">
+                <!-- The main canvas -->
+                <p class="instructions">
+                    <strong>Click</strong> to paint.
+                    <strong>Shift+Click</strong> to remove.
+                </p>
+                <canvas width="960" height="640">
+                </canvas>
+               
+                <!-- UI for layers -->
+                <!-- <div>
+                        <label>Editing Layer:</label>
+                        <ul class="layers">
+                            <li><button onclick="setLayer(2)" class="layer" tile-layer="2">Top Layer</button></li>
+                            <li><button onclick="setLayer(1)" class="layer" tile-layer="1">Middle Layer</button></li>
+                            <li><button onclick="setLayer(0)" class="layer" tile-layer="0">Bottom Layer</button></li>
+                        </ul>
+                    </div> -->
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+<script src ="./script.js"></script>
+</body>
+</html>
