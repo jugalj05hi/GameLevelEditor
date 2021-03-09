@@ -81,7 +81,7 @@ tilesetContainer.addEventListener("mousedown", (event) => {
     // console.log(selection);
     // console.log(array);
     tileValue = array[selection[0]][selection[1]];
-    // console.log(tileValue);
+    console.log(tileValue);
     tilesetSelection.style.left = selection[0] * tileSize + "px";
     tilesetSelection.style.top = selection[1] * tileSize + "px";
 });
