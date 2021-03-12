@@ -145,18 +145,17 @@ function addTile(mouseEvent) {
     // console.log(clicked);
     let x = clicked[0];
     let y = clicked[1];
-    // console.log(x, y);
-    // console.log("earray", eArray);
-    // var tileValue = array[x][y];
-    // console.log(tileValue);
-    // console.log(tileValue);
     eArray[x][y] = tileValue;
+    if (mouseEvent.altKey) {
+        eArray[x][y] += 5000;
+    }
     var key = clicked[0] + "-" + clicked[1];
     
     if (mouseEvent.shiftKey) {
         deleteTile(clicked);
         delete layers[currentLayer][key];
-    } else {
+    }
+    else {
         layers[currentLayer][key] = [selection[0], selection[1]];
     }
     draw();
