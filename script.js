@@ -121,6 +121,9 @@ function loadFromArray() {
     let rows = Math.floor(canvas.width / tileSize);
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
+            if (fileArray[i][j] > 5000) {
+                fileArray[i][j] -= 5000;
+            }
             if (fileArray[i][j] != 0+"") {
                 mapArrayToCanvas(Number(fileArray[i][j]), j, i);
             }
