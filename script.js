@@ -121,9 +121,7 @@ function loadFromArray() {
     let rows = Math.floor(canvas.width / tileSize);
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
-            if (fileArray[i][j] > 5000) {
-                fileArray[i][j] -= 5000;
-            }
+            
             if (fileArray[i][j] != 0+"") {
                 mapArrayToCanvas(Number(fileArray[i][j]), j, i);
             }
@@ -134,8 +132,15 @@ function loadFromArray() {
     
 function mapArrayToCanvas(tileId, x, y) {
     // console.log("in mapArray", tileId, x, y);
-    selection = tileMap.get(tileId);
+    if (tileId > 5000) {
+        selection = tileMap.get(tileId - 5000);
+    }
+    else {
+        selection = tileMap.get(tileId);
+    }
     tileValue = array[selection[0]][selection[1]];
+    if (tileId > 5000)
+        tileValue += 5000;
     tilesetSelection.style.left = selection[0] * tileSize + "px";
     tilesetSelection.style.top = selection[1] * tileSize + "px";
     reverseLookUp([x, y]);
