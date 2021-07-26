@@ -10,7 +10,7 @@ var tileValue;
 var tempImg;
 var isMouseDown = false;
 var currentLayer = 0;
-var tileSize = 32;
+var tileSize = 16;
 var tileMap = new Map();
 var fileArray;
 var layers = [
@@ -125,7 +125,6 @@ function loadFromArray() {
             if (fileArray[i][j] != 0+"") {
                 mapArrayToCanvas(Number(fileArray[i][j]), j, i);
             }
-            fileArray += " ";
         }
     }
     selection = [0, 0];
@@ -267,7 +266,8 @@ function saveFile() {
         }
         fileArray += "\n";
     }
-    download("TileMap.txt", fileArray);
+    download("TMPx.txt", fileArray);
+    console.log(fileArray);
     
 }
 function setTileMap() {
