@@ -125,6 +125,7 @@ function loadFromArray() {
             if (fileArray[i][j] != 0+"") {
                 mapArrayToCanvas(Number(fileArray[i][j]), j, i);
             }
+            fileArray += " ";
         }
     }
     selection = [0, 0];
